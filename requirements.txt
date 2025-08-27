@@ -1,0 +1,15 @@
+re
+pandas 
+langchain
+langchain-community
+langchain-openai
+pypdf 
+unstructured
+streamlit
+awscli
+boto3
+botocore
+xml
+argparse
+langchain-aws
+pydantic 
