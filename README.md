@@ -9,17 +9,6 @@ Health & Fitness Chatbot is an interactive, AI-powered web application that prov
 * Evidence-Based Advice: All responses are grounded in scientific context and best practices.
 * Scalable RAG Backend: Combines local CSV, PDF, TXT, and S3-hosted PMC articles for knowledge retrieval.
 
-**Prerequisites**
-
-Python 3.8+
-pip
-AWS credentials (with S3 access for PMC articles, unless running unsigned)
-Required Python packages (see Setup).
-
-**Setup**
-
-Clone the repository and navigate to its directory.
-
 **Installation:**
 
 1. Clone the repository:
