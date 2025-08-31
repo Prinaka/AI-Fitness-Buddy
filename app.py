@@ -24,7 +24,7 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-st.markdown("<h1 class='center-text'>Health & Fitness Assistant</h1>", unsafe_allow_html=True)
+st.markdown("<h1 class='center-text'>AI Fitness Buddy</h1>", unsafe_allow_html=True)
 st.markdown("<p class='center-text'>Ask about nutrition, workouts, or guidelines!</p>", unsafe_allow_html=True)
 st.divider()
 
@@ -45,3 +45,4 @@ if query:
 
     st.markdown("<h3>Answer</h3>", unsafe_allow_html=True)
     st.markdown(f"<div class='answer-box'>{response}</div>", unsafe_allow_html=True)
+
