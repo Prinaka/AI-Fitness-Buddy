@@ -1,6 +1,6 @@
-# Fitness Chatbot
+# Health and Fitness Chatbot
 
-Fitness Chatbot is an interactive, AI-powered web application that provides personalised answers to questions about nutrition, workouts, and health guidelines using retrieval-augmented generation (RAG) techniques. The assistant leverages advanced language models, a vector store database, and scientific resources to offer accurate, practical fitness coaching and nutrition advice.
+Health and Fitness Chatbot is an interactive, AI-powered web application that provides personalised answers to questions about nutrition, workouts, and health guidelines using retrieval-augmented generation (RAG) techniques. The assistant leverages advanced language models, a vector store database, and scientific resources to offer accurate, practical fitness coaching and nutrition advice.
 
 **Key Features:**
 * Conversational Q&A: Ask freeform questions about fitness, nutrition, guidelines, and workout planning.
