@@ -1,5 +1,5 @@
 import streamlit as st
-from health_chatbot import build_or_load_vectorstore, qa_chain, generate_answer
+from fitness_chatbot import build_or_load_vectorstore, generate_answer
 
 st.set_page_config(page_title="Health & Fitness Assistant", layout="wide")
 
@@ -32,17 +32,15 @@ st.divider()
 def load_vectorstore():
     return build_or_load_vectorstore(rebuild=False)
 
-vs = load_vectorstore()
+vs = build_or_load_vectorstore()
 
 query = st.text_area("Ask a question:", "")
 
 if query:
     with st.spinner("Thinking..."):
-        if st.text_area and is_fitness_plan_query(query):
-            st.info("🎯 Detected fitness plan request - providing structured format!")
-        else: 
-            response = generate_answer(vs, query)
+        response = generate_answer(vs, query)
 
     st.markdown("<h3>Answer</h3>", unsafe_allow_html=True)
     st.markdown(f"<div class='answer-box'>{response}</div>", unsafe_allow_html=True)
+
 
