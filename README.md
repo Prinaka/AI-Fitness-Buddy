@@ -6,7 +6,7 @@ This is an interactive, AI-powered web application that provides personalised an
 * Conversational Q&A: Ask freeform questions about fitness, nutrition, guidelines, and workout planning.
 * Rich Data Integration: Nutritional values, exercise information, health guidelines, and scientific articles are integrated for reliable responses.
 * Structured Fitness Plans: Fitness plan requests are detected and answered in structured, actionable formats.
-* Evidence-Based Advice: All responses are grounded in scientific context and best practices.
+* Evidence-Based Advice: All responses are grounded in a scientific context and best practices.
 * Scalable RAG Backend: Combines local CSV, PDF, TXT, and S3-hosted PMC articles for knowledge retrieval.
 
 **Installation:**
@@ -27,12 +27,7 @@ venv\Scripts\activate     # Windows
 ```
 pip install -r requirements.txt
 ```
-4. Configure AWS credentials (for Bedrock access):
-```
-aws configure
-#Provide AWS Access Key, Secret Key, and default region (us-east-1)
-```
-5. Prepare Data Folders:
+4. Prepare Data Folders:
 * Place CSVs for nutrition in ./data/nutrition.
   - ingredient_nutrient_value.csv
   - nutrient.csv
