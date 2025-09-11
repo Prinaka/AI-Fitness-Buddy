@@ -6,7 +6,8 @@ pypdf
 unstructured
 streamlit
 awscli
-boto3
-botocore
+botocore==1.34.69
+boto3==1.34.69
 xml
 argparse
+
