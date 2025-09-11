@@ -34,14 +34,14 @@ def load_vectorstore():
 
 vs = build_or_load_vectorstore()
 
-query = st.chat_input("Ask a question:", "")
+query = st.chat_input("Ask a question...")
 
 if query:
     with st.spinner("Thinking..."):
         response = generate_answer(vs, query)
+    chatbot = st.chat_message("assistant")
+    chatbot.write(reponse)
 
-    st.markdown("<h3>Answer</h3>", unsafe_allow_html=True)
-    st.markdown(f"<div class='answer-box'>{response}</div>", unsafe_allow_html=True)
 
 
 
