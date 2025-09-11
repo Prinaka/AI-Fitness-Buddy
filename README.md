@@ -1,5 +1,7 @@
 # AI Fitness Buddy
 
+Live Demo : https://ai-fitness-buddy.streamlit.app
+
 This is an interactive, AI-powered web application that provides personalised answers to questions about nutrition, workouts, and health guidelines using retrieval-augmented generation (RAG) techniques. The assistant leverages advanced language models, a vector store database, and scientific resources to offer accurate, practical fitness coaching and nutrition advice.
 
 **Key Features:**
@@ -65,7 +67,7 @@ fitness_chatbot.py
 * Loads and processes nutrition, exercise, and guideline data
 * Downloads and parses PMC articles from S3
 * Builds (or reloads) a FAISS vector index for efficient semantic search
-* Implements the Q&A chain powered by Llama 3 BedrockChat
+* Implements the Q&A chain powered by Llama 3.1
 * Provides reusable answer generation logic for both CLI and web frontends
 
 **Architecture:**
