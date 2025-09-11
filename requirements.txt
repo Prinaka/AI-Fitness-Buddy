@@ -10,5 +10,3 @@ boto3
 botocore
 xml
 argparse
-langchain-aws
-
