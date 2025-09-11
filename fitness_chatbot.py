@@ -54,7 +54,7 @@ def qa_chain(vs):
     3. Include proper progression and safety considerations
     4. Base recommendations on scientific evidence
     5. If user asks for meal plans or diet plans or fitness plans, provide in structured table format
-    Context Information: {vs}
+    Context Information: {context}
     User Question: {input}""")
     chain = create_stuff_documents_chain(llm,prompt)
     retrieval_chain = create_retrieval_chain(retriever,chain)
@@ -91,4 +91,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
