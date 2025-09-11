@@ -40,7 +40,8 @@ if query:
     with st.spinner("Thinking..."):
         response = generate_answer(vs, query)
     chatbot = st.chat_message("assistant")
-    chatbot.write(reponse)
+    chatbot.write(response)
+
 
 
 
