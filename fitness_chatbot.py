@@ -17,12 +17,12 @@ load_dotenv()
 INDEX_DIR = "./index/faiss_health_fitness"
 CHUNK_SIZE = 1200
 CHUNK_OVERLAP = 120
-HF_TOKEN = os.getenv('HF_TOKEN')
+HF_TOKEN = os.getenv('GROQ_API')
 
 llm = ChatOpenAI(
-    model="meta-llama/Llama-3.1-8B-Instruct",
-    openai_api_key=os.environ["HF_TOKEN"],
-    openai_api_base="https://router.huggingface.co/v1"
+    model="llama-3.1-8b-instant",
+    openai_api_key=os.environ["GROQ_API"],
+    openai_api_base="https://api.groq.com/openai/v1"
 )
 
 # ---------------------- Load data ----------------
@@ -53,7 +53,8 @@ def qa_chain(vs):
     2. Provide complete structured plans with specific details
     3. Include proper progression and safety considerations
     4. Base recommendations on scientific evidence
-    Context Information: {context}
+    5. If user asks for meal plans or diet plans or fitness plans, provide in structured table format
+    Context Information: {vs}
     User Question: {input}""")
     chain = create_stuff_documents_chain(llm,prompt)
     retrieval_chain = create_retrieval_chain(retriever,chain)
@@ -90,3 +91,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
