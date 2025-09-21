@@ -70,10 +70,11 @@ if st.session_state.current_chat:
         chat_history.append({"role": "human", "content": query})
 
         with st.spinner("Thinking..."):
-            response = generate_answer(vs, query)
+            response = generate_answer(vs, query, chat_history)
 
         st.chat_message("assistant").write(response)
         chat_history.append({"role": "assistant", "content": response})
+
 
 
 
