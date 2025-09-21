@@ -35,7 +35,7 @@ def new_chat():
 if st.sidebar.button(label="➕ New Chat", type="secondary", width="stretch"):
     new_chat()
 
-st.sidebar.subheader("Chats History")
+st.sidebar.subheader("Chat History")
 for chat_id, chat_data in st.session_state.chats.items():
     label = chat_data["title"]
     if st.sidebar.button(label, key=f"btn_{chat_id}", width="stretch"):
@@ -68,3 +68,4 @@ if st.session_state.current_chat:
 
         st.chat_message("assistant").write(response)
         chat_history.append({"role": "assistant", "content": response})
+
