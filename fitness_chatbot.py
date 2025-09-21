@@ -3,7 +3,7 @@ import re
 from langchain_community.chat_models import ChatOpenAI
 from langchain.schema import Document
 from langchain.text_splitter import RecursiveCharacterTextSplitter
-from langchain_community.embeddings import HuggingFaceEmbeddings
+from langchain_openai import OpenAIEmbeddings
 from langchain_community.vectorstores import FAISS
 from langchain.chains.combine_documents import create_stuff_documents_chain
 from langchain.prompts import ChatPromptTemplate
@@ -95,6 +95,7 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
 
 
