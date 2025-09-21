@@ -56,14 +56,19 @@ if st.session_state.current_chat is None:
 if st.session_state.current_chat:
     chat_data = st.session_state.chats[st.session_state.current_chat]
     chat_history = chat_data["history"]
-
+    
+    st.sidebar.subheader("Rename Current Chat")
+    new_title = st.sidebar.text_input("Chat Title", value=chat_data["title"])
+    if new_title and new_title != chat_data["title"]:
+        chat_data["title"] = new_title
+        
     for msg in chat_history:
         st.chat_message(msg["role"]).write(msg["content"])
 
     query = st.chat_input("Ask a question...", key=f"input_{st.session_state.current_chat}")
 
     if query:
-        if chat_data["title"] == "Untitled Chat":
+        if chat_data["title"] in ["Untitled Chat", "Default Chat"]:
             chat_data["title"] = query[:20] + ("..." if len(query) > 20 else "")
 
         st.chat_message("human").write(query)
@@ -74,3 +79,4 @@ if st.session_state.current_chat:
 
         st.chat_message("assistant").write(response)
         chat_history.append({"role": "assistant", "content": response})
+
