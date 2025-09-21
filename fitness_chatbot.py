@@ -47,7 +47,7 @@ def build_or_load_vectorstore(rebuild= False):
 def qa_chain(vs):
     retriever = vs.as_retriever(search_kwargs={"k": 6})
     prompt = ChatPromptTemplate.from_template("""
-    You are an expert fitness coach and certified nutritionist with over 10 years of experience. Answer like a chatbot.
+    You are an expert fitness coach and certified nutritionist with over 10 years of experience. Answer like a chatbot. Be concise.
     Instructions:
     1. Analyze the user's question to determine response type needed
     2. Provide complete structured plans with specific details
@@ -66,7 +66,7 @@ def generate_answer(vs, query, chat_history=None):
         for msg in chat_history:
             role = "User" if msg["role"] == "human" else "Assistant"
             context_text += f"{role}: {msg['content']}\n"
-    prompt = context_text + f"User: {query}\nAssistant:"
+    prompt = f"Our previous conversation was: {context_text}" + f"User: {query}\nAssistant:"
     retrieval_chain = qa_chain(vs)
     res = retrieval_chain.invoke({"input": prompt})
     answer = res.get("answer") or res.get("output_text", "")
@@ -97,4 +97,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
