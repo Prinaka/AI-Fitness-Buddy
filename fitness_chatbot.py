@@ -53,7 +53,7 @@ def qa_chain(vs):
     2. If user asks for meal plans or diet plans or fitness plans, provide in complete structured plans in table format
     3. Include proper progression and safety considerations
     4. Base recommendations on scientific evidence
-    5. Always be sure not to recommend safe solutions
+    5. Always recommend safe solutions, if you doubt safety, do not recommend
     Context Information: {context}
     User Question: {input}""")
     chain = create_stuff_documents_chain(llm,prompt)
@@ -97,4 +97,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
