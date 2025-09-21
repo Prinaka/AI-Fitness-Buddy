@@ -47,13 +47,13 @@ def build_or_load_vectorstore(rebuild= False):
 def qa_chain(vs):
     retriever = vs.as_retriever(search_kwargs={"k": 6})
     prompt = ChatPromptTemplate.from_template("""
-    You are an expert fitness coach and certified nutritionist with over 10 years of experience. Answer like a chatbot. Be concise.
+    You are an expert fitness coach and certified nutritionist with over 10 years of experience. Be concise.
     Instructions:
     1. Analyze the user's question to determine response type needed
-    2. Provide complete structured plans with specific details
+    2. If user asks for meal plans or diet plans or fitness plans, provide in complete structured plans in table format
     3. Include proper progression and safety considerations
     4. Base recommendations on scientific evidence
-    5. If user asks for meal plans or diet plans or fitness plans, provide in structured table format
+    5. Always be sure not to recommend safe solutions
     Context Information: {context}
     User Question: {input}""")
     chain = create_stuff_documents_chain(llm,prompt)
@@ -97,3 +97,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
