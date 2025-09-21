@@ -68,7 +68,7 @@ def generate_answer(vs, query, chat_history=None):
             context_text += f"{role}: {msg['content']}\n"
     prompt = context_text + f"User: {query}\nAssistant:"
     retrieval_chain = qa_chain(vs)
-    res = retrieval_chain.invoke({"input": query})
+    res = retrieval_chain.invoke({"input": prompt})
     answer = res.get("answer") or res.get("output_text", "")
     answer = re.sub(r"\[/?INST\]|\</?s\>", "", answer).strip()
     return answer
@@ -97,3 +97,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
