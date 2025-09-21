@@ -60,7 +60,13 @@ def qa_chain(vs):
     retrieval_chain = create_retrieval_chain(retriever,chain)
     return retrieval_chain
 
-def generate_answer(vs, query):
+def generate_answer(vs, query, chat_history=None):
+    context_text = ""
+    if chat_history:
+        for msg in chat_history:
+            role = "User" if msg["role"] == "human" else "Assistant"
+            context_text += f"{role}: {msg['content']}\n"
+    prompt = context_text + f"User: {query}\nAssistant:"
     retrieval_chain = qa_chain(vs)
     res = retrieval_chain.invoke({"input": query})
     answer = res.get("answer") or res.get("output_text", "")
@@ -91,6 +97,7 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
 
 
