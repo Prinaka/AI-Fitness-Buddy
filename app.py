@@ -74,8 +74,3 @@ if st.session_state.current_chat:
 
         st.chat_message("assistant").write(response)
         chat_history.append({"role": "assistant", "content": response})
-
-
-
-
-
