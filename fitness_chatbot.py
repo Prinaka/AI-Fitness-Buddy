@@ -47,7 +47,7 @@ def build_or_load_vectorstore(rebuild= False):
 def qa_chain(vs):
     retriever = vs.as_retriever(search_kwargs={"k": 6})
     prompt = ChatPromptTemplate.from_template("""
-    You are an expert fitness coach and certified nutritionist with over 10 years of experience.
+    You are an expert fitness coach and certified nutritionist with over 10 years of experience. Answer like a chatbot.
     Instructions:
     1. Analyze the user's question to determine response type needed
     2. Provide complete structured plans with specific details
@@ -97,10 +97,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-
-
-
-
-
-
