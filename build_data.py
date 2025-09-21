@@ -198,7 +198,8 @@ def build_documents(nutrition_df, exercises_df, guideline_docs, pmc_docs, save_p
 nutrition_df = load_nutrition_df()
 exercises_df = load_exercises_df()
 guidelines_docs = load_guideline_documents()
-pmc_docs = load_pmc_articles(limit=100)
+pmc_docs = load_pmc_articles(limit=200)
 print("Loaded")
 docs_json = build_documents(nutrition_df, exercises_df, guidelines_docs, pmc_docs, save_path=DATA_JSON_DIR)
+
 print("saved")
