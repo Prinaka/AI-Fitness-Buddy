@@ -1,8 +1,8 @@
 import os
 import re
-from sentence_transformers import SentenceTransformer
 from langchain_community.chat_models import ChatOpenAI
 from langchain.schema import Document
+from langchain.embeddings import HuggingFaceEmbeddings
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain_community.vectorstores import FAISS
 from langchain.chains.combine_documents import create_stuff_documents_chain
@@ -32,7 +32,7 @@ with open(r'./data/documents.json', 'r', encoding='utf-8') as d1:
 docs = [Document(page_content=d["content"], metadata=d.get("metadata", {})) for d in raw_docs]
 
 def build_or_load_vectorstore(rebuild= False):
-    embeddings = SentenceTransformer('all-MiniLM-L6-v2')
+    embeddings = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
     if rebuild or not os.path.isdir(INDEX_DIR):
         splitter = RecursiveCharacterTextSplitter(chunk_size=CHUNK_SIZE, chunk_overlap=CHUNK_OVERLAP)      
         chunks = splitter.split_documents(docs)
@@ -91,6 +91,7 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
 
 
