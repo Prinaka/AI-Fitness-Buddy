@@ -47,6 +47,12 @@ def load_vectorstore():
 
 vs = load_vectorstore()
 
+if st.session_state.current_chat is None:
+    st.session_state.chat_counter += 1
+    default_chat_id = f"chat_{st.session_state.chat_counter}"
+    st.session_state.chats[default_chat_id] = {"title": "Default Chat", "history": []}
+    st.session_state.current_chat = default_chat_id
+    
 if st.session_state.current_chat:
     chat_data = st.session_state.chats[st.session_state.current_chat]
     chat_history = chat_data["history"]
@@ -68,6 +74,7 @@ if st.session_state.current_chat:
 
         st.chat_message("assistant").write(response)
         chat_history.append({"role": "assistant", "content": response})
+
 
 
 
