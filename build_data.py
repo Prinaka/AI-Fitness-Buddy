@@ -1,6 +1,6 @@
 import os
 import pandas as pd
-from langchain.docstore.document import Document
+from langchain_core import Document
 from langchain_community.document_loaders import PyPDFLoader,TextLoader
 import boto3
 import botocore
@@ -135,8 +135,7 @@ def load_pmc_articles(limit=10):
 
             combined_text = f"{title} {abstract}".lower()
             if not any(kw in combined_text for kw in TOPIC_KEYWORDS):
-                continue  # skip if not relevant
-
+                continue
             content = f"Title: {title}\n\nAbstract: {abstract}\n\nBody: {body_text}"
             meta = {"type": "pmc", "source": key, "title": title}
 
@@ -198,8 +197,7 @@ def build_documents(nutrition_df, exercises_df, guideline_docs, pmc_docs, save_p
 nutrition_df = load_nutrition_df()
 exercises_df = load_exercises_df()
 guidelines_docs = load_guideline_documents()
-pmc_docs = load_pmc_articles(limit=200)
+pmc_docs = load_pmc_articles(limit=100)
 print("Loaded")
 docs_json = build_documents(nutrition_df, exercises_df, guidelines_docs, pmc_docs, save_path=DATA_JSON_DIR)
-
 print("saved")
