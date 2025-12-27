@@ -78,6 +78,7 @@ def qa_chain(vs,profile_data=None,memory=None):
     8. dietary allergies: {allergies}
     9. dietary dislikes: {dislikes}
     10. age: {age}
+    11. name: {name}
                                               
     Always use the above user details to personalize your answers.
     If the question refers to something mentioned before, use that memory instead of saying "I don't know."
@@ -149,3 +150,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
