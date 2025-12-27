@@ -5,6 +5,7 @@ Live Demo : https://ai-fitness-buddy.streamlit.app
 This is an interactive, AI-powered web application that provides personalised answers to questions about nutrition, workouts, and health guidelines using retrieval-augmented generation (RAG) techniques. The assistant leverages advanced language models, a vector store database, and scientific resources to offer accurate, practical fitness coaching and nutrition advice.
 
 **Key Features:**
+* Personalised: User details saved in database used to personalise answers.
 * Conversational Q&A: Ask freeform questions about fitness, nutrition, guidelines, and workout planning.
 * Rich Data Integration: Nutritional values, exercise information, health guidelines, and scientific articles are integrated for reliable responses.
 * Structured Fitness Plans: Fitness plan requests are detected and answered in structured, actionable formats.
@@ -44,7 +45,7 @@ Run the Streamlit app:
 streamlit run app.py
 ```
 * The app launches a modern interface for asking health and fitness questions.
-* Ask any question in the text area; responses appear in a styled answer box.
+* Ask any question in the text area. Responses appear in a styled answer box.
 * Fitness plan queries are auto-detected and presented with enhanced formatting.
 
 **Command-Line Interface (CLI):**
@@ -75,7 +76,7 @@ fitness_chatbot.py
 * Data Loading: Nutrition, exercise, guidelines (local), PMC articles (S3 public bucket).
 * Index Building: Documents are chunked and embedded using HuggingFace models, stored in FAISS for fast RAG retrieval.
 * LLM Chain: User queries are answered using a retrieval chain with Llama 3 (via LangChain).
-* Frontend/CLI: The web interface offers a rich chatbox; CLI enables terminal interaction (also for index rebuilding).
+* Frontend/CLI: The web interface offers a rich chatbox after Sign Up. CLI enables terminal interaction (also for index rebuilding.
 
 **Customization & Extending:**
 
