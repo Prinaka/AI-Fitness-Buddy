@@ -45,23 +45,22 @@ def qa_chain(vs,profile_data=None,memory=None):
     if memory is None:
         memory = ConversationBufferMemory(memory_key="chat_history", return_messages=True)
 
-    if profile_data:
-        name = profile_data.get("name")
-        age = profile_data.get("age")
-        gender = profile_data.get("gender")
-        body_type = profile_data.get("body_type")
-        height = profile_data.get("height")
-        weight = profile_data.get("weight")
-        bmi = profile_data.get("bmi")
-        goals = profile_data.get("goals", {}) or {}
-        diet = profile_data.get("diet", {}) or {}
+    name = profile_data.get("name", "N/A")
+    age = profile_data.get("age", "N/A")
+    gender = profile_data.get("gender", "N/A")
+    body_type = profile_data.get("body_type", "N/A")
+    height = profile_data.get("height", "N/A")
+    weight = profile_data.get("weight", "N/A")
+    bmi = profile_data.get("bmi", "N/A")
+    goals = profile_data.get("goals", {}) or {}
+    diet = profile_data.get("diet", {}) or {}
 
-        primary_goal = goals.get("primary", "N/A")
-        target = goals.get("target_weight", "N/A")
+    primary_goal = goals.get("primary", "N/A")
+    target = goals.get("target_weight", "N/A")
 
-        preferences = diet.get("preferences", "N/A")
-        allergies = diet.get("allergies", "N/A")
-        dislikes = diet.get("dislikes", "N/A")
+    preferences = diet.get("preferences", "N/A")
+    allergies = diet.get("allergies", "N/A")
+    dislikes = diet.get("dislikes", "N/A")
 
     prompt = ChatPromptTemplate.from_template("""
     You are an enthusiastic AI Fitness Coach. Your tone should be according to user's age {age} and gender {gender}.
@@ -150,4 +149,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
